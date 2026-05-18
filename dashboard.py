@@ -643,11 +643,11 @@ def fig_venue_bar():
         customdata=df_v["n"],
     ))
     fig.add_vline(x=0.5, line=dict(color="rgba(255,255,255,0.25)", dash="dash"))
-    fig.update_layout(**PLOTLY_LAYOUT, height=520,
+    layout = {**PLOTLY_LAYOUT, "margin": dict(l=270, r=70, t=44, b=40)}
+    fig.update_layout(**layout, height=520,
         xaxis=dict(showgrid=False, showticklabels=False, range=[0, 0.85]),
         yaxis=dict(showgrid=False),
         title=dict(text="Bat-First Win % by Venue", x=0.5),
-        margin=dict(l=270, r=70, t=44, b=40),
     )
     return fig
 
