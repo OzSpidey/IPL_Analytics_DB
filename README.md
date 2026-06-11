@@ -1,8 +1,10 @@
-<div align="center">
+﻿<div align="center">
 
-# 🏏 IPL Analytics Dashboard
+# ðŸ IPL Analytics Dashboard
 
-**An interactive, dark-themed analytics dashboard covering 18 years (2008–2026) of Indian Premier League data, built entirely in Python with Plotly Dash.**
+**Live Demo:** https://ipl-analytics-db.onrender.com
+
+**An interactive, dark-themed analytics dashboard covering 18 years (2008â€“2026) of Indian Premier League data, built entirely in Python with Plotly Dash.**
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Plotly Dash](https://img.shields.io/badge/Plotly_Dash-2.14+-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)](https://dash.plotly.com)
@@ -10,7 +12,7 @@
 [![Pandas](https://img.shields.io/badge/pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-> *1,201 real matches · 19 franchises · 6 interactive tabs · animated charts · zero JavaScript required*
+> *1,201 real matches Â· 19 franchises Â· 6 interactive tabs Â· animated charts Â· zero JavaScript required*
 
 </div>
 
@@ -21,11 +23,11 @@
 | | |
 |:---:|:---:|
 | ![Overview](screenshots/01_overview.png) | ![Season Race](screenshots/02_season_race.png) |
-| **📊 Overview**, KPIs, win rates, home/away, captain leaderboard | **🏆 Season Race**, animated cumulative wins bar chart race |
+| **ðŸ“Š Overview**, KPIs, win rates, home/away, captain leaderboard | **ðŸ† Season Race**, animated cumulative wins bar chart race |
 | ![Team Analysis](screenshots/03_team_analysis.png) | ![Head-to-Head](screenshots/04_head_to_head.png) |
-| **📈 Team Analysis**, radar profile + season breakdown | **⚔️ Head-to-Head**, 12×12 rivalry win-rate heatmap |
+| **ðŸ“ˆ Team Analysis**, radar profile + season breakdown | **âš”ï¸ Head-to-Head**, 12Ã—12 rivalry win-rate heatmap |
 | ![Venue Map](screenshots/05_venue_map.png) | ![Toss Analysis](screenshots/06_toss_analysis.png) |
-| **🗺 Venue Map**, India geo map + bat-first win% | **🎲 Toss Analysis**, toss impact by team + trend over seasons |
+| **ðŸ—º Venue Map**, India geo map + bat-first win% | **ðŸŽ² Toss Analysis**, toss impact by team + trend over seasons |
 
 ---
 
@@ -62,7 +64,7 @@ Open **http://localhost:8050** in your browser. That's it, the data is already b
 
 ## Six Interactive Tabs
 
-### 📊 Overview
+### ðŸ“Š Overview
 
 ![Overview Tab](screenshots/01_overview.png)
 
@@ -76,18 +78,18 @@ The landing tab gives you the full picture at a glance.
 
 ---
 
-### 🏆 Season Race
+### ðŸ† Season Race
 
 ![Season Race Tab](screenshots/02_season_race.png)
 
 Watch the IPL title race unfold in real time.
 
-- **Animated Bar Chart Race**, Press ▶ Play and watch cumulative wins pile up season by season, 2008 to 2026. Each bar is in the team's official IPL colour. Drag the season slider to jump to any year, or pause mid-animation
+- **Animated Bar Chart Race**, Press â–¶ Play and watch cumulative wins pile up season by season, 2008 to 2026. Each bar is in the team's official IPL colour. Drag the season slider to jump to any year, or pause mid-animation
 - **Season Win Rate Line Chart**, Multi-team comparison showing win rate trajectory across all seasons. Select any combination of teams from the dropdown to compare dynasties, declines, and comeback stories
 
 ---
 
-### 📈 Team Analysis
+### ðŸ“ˆ Team Analysis
 
 ![Team Analysis Tab](screenshots/03_team_analysis.png)
 
@@ -100,29 +102,29 @@ Deep-dive into any franchise's complete history.
 
 ---
 
-### ⚔️ Head-to-Head
+### âš”ï¸ Head-to-Head
 
 ![Head-to-Head Tab](screenshots/04_head_to_head.png)
 
 The full rivalry matrix and drill-down detail panel.
 
-- **Win Rate Heatmap Matrix**, A 12×12 grid where every cell shows Team A's win rate against Team B. Deeper purple = Team A dominates. Every cell is annotated with the exact record (e.g. "21/41" = 21 wins from 41 encounters). CSK vs MI is the most-played rivalry in the league at 41 matches
+- **Win Rate Heatmap Matrix**, A 12Ã—12 grid where every cell shows Team A's win rate against Team B. Deeper purple = Team A dominates. Every cell is annotated with the exact record (e.g. "21/41" = 21 wins from 41 encounters). CSK vs MI is the most-played rivalry in the league at 41 matches
 - **Rivalry Detail**, Choose any two teams from the dropdowns to see an overall win-count bar chart plus a season-by-season grouped bar so you can pinpoint exactly when momentum shifted
 
 ---
 
-### 🗺 Venue Map
+### ðŸ—º Venue Map
 
 ![Venue Map Tab](screenshots/05_venue_map.png)
 
 Where cricket is played across India, and who wins where.
 
-- **India Geo Map**, Every IPL venue plotted on an interactive map of India. Bubble **size** encodes how many matches were hosted there; bubble **colour** (blue → red gradient) shows whether batting first or chasing wins more often at that ground
+- **India Geo Map**, Every IPL venue plotted on an interactive map of India. Bubble **size** encodes how many matches were hosted there; bubble **colour** (blue â†’ red gradient) shows whether batting first or chasing wins more often at that ground
 - **Bat-First Win % Bar Chart**, Every venue with 10+ matches ranked by batting-first win percentage. A dashed line marks 50%. Instantly reveals dew-heavy venues where chasing dominates vs dry grounds that favour setting a target
 
 ---
 
-### 🎲 Toss Analysis
+### ðŸŽ² Toss Analysis
 
 ![Toss Analysis Tab](screenshots/06_toss_analysis.png)
 
@@ -143,7 +145,7 @@ How much does the coin flip actually matter?
 | Data wrangling | [pandas](https://pandas.pydata.org) + [NumPy](https://numpy.org) | All aggregations, win-rate calcs, home/away logic |
 | Theme base | [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai) | CYBORG dark theme |
 | Custom styling | `assets/dashboard.css` | Dark glassmorphism, dropdown dark mode, scrollbar |
-| Data source | [CricSheet](https://cricsheet.org) | 1,201 real IPL matches (2008–2026) |
+| Data source | [CricSheet](https://cricsheet.org) | 1,201 real IPL matches (2008â€“2026) |
 
 ---
 
@@ -151,18 +153,18 @@ How much does the coin flip actually matter?
 
 ```
 ipl-analytics-dashboard/
-│
-├── dashboard.py          # The entire application, layout, charts, callbacks
-│
-├── assets/
-│   └── dashboard.css     # Dark theme: dropdowns, scrollbar, Plotly controls
-│
-├── data/
-│   └── matches.csv       # 1,201 IPL matches (2008–2026), from CricSheet
-│
-├── screenshots/          # Tab screenshots (used in this README)
-├── requirements.txt      # 5 dependencies only
-└── README.md
+â”‚
+â”œâ”€â”€ dashboard.py          # The entire application, layout, charts, callbacks
+â”‚
+â”œâ”€â”€ assets/
+â”‚   â””â”€â”€ dashboard.css     # Dark theme: dropdowns, scrollbar, Plotly controls
+â”‚
+â”œâ”€â”€ data/
+â”‚   â””â”€â”€ matches.csv       # 1,201 IPL matches (2008â€“2026), from CricSheet
+â”‚
+â”œâ”€â”€ screenshots/          # Tab screenshots (used in this README)
+â”œâ”€â”€ requirements.txt      # 5 dependencies only
+â””â”€â”€ README.md
 ```
 
 ---
@@ -173,13 +175,13 @@ The dataset is sourced from **[CricSheet.org](https://cricsheet.org)**, the gold
 
 | Era | Franchises | Notes |
 |:---|:---|:---|
-| 2008–2012 | 8–10 teams | Includes Deccan Chargers, Kochi Tuskers Kerala, Pune Warriors India |
-| 2013–2015 | 8 teams | Sunrisers Hyderabad replace Deccan Chargers |
-| 2016–2017 | 8 teams | Rising Pune Supergiant & Gujarat Lions replace banned CSK & RR |
-| 2018–2021 | 8 teams | CSK and RR return |
-| 2022–2026 | 10 teams | Lucknow Super Giants & Gujarat Titans join |
+| 2008â€“2012 | 8â€“10 teams | Includes Deccan Chargers, Kochi Tuskers Kerala, Pune Warriors India |
+| 2013â€“2015 | 8 teams | Sunrisers Hyderabad replace Deccan Chargers |
+| 2016â€“2017 | 8 teams | Rising Pune Supergiant & Gujarat Lions replace banned CSK & RR |
+| 2018â€“2021 | 8 teams | CSK and RR return |
+| 2022â€“2026 | 10 teams | Lucknow Super Giants & Gujarat Titans join |
 
-**1,201 matches · 19 franchises · 60 venues · 19 seasons**
+**1,201 matches Â· 19 franchises Â· 60 venues Â· 19 seasons**
 
 ---
 
@@ -221,6 +223,7 @@ Match data sourced from **[CricSheet.org](https://cricsheet.org)**, maintained b
 
 Built with Python, Plotly Dash, and 18 years of cricket data.
 
-**[IPL Match Predictor](https://github.com/OzSpidey/ipl-match-predictor)** · **[CricSheet Data](https://cricsheet.org)**
+**[IPL Match Predictor](https://github.com/OzSpidey/ipl-match-predictor)** Â· **[CricSheet Data](https://cricsheet.org)**
 
 </div>
+
