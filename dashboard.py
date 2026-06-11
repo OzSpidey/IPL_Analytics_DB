@@ -1,5 +1,5 @@
-"""IPL Analytics Dashboard — Plotly Dash
-Run: python dashboard.py  →  http://localhost:8050
+﻿"""IPL Analytics Dashboard â€” Plotly Dash
+Run: python dashboard.py  â†’  http://localhost:8050
 """
 
 import pandas as pd
@@ -11,7 +11,7 @@ from dash import dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 from pathlib import Path
 
-# ── Constants ──────────────────────────────────────────────────────────────────
+# â”€â”€ Constants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 DATA_PATH = Path("data/matches.csv")
 
 TEAM_COLORS = {
@@ -84,7 +84,7 @@ VENUE_COORDS = {
     "Green Park":                                     (26.424,  80.348),
 }
 
-# ── Team colours by short code (CSV stores abbreviations) ─────────────────────
+# â”€â”€ Team colours by short code (CSV stores abbreviations) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 TEAM_COLORS_SHORT = {
     "MI":   "#005DA0", "CSK":  "#F9CD05", "RCB":  "#EC1C24",
     "KKR":  "#3A225D", "SRH":  "#F7A721", "DC":   "#0078BC",
@@ -94,7 +94,7 @@ TEAM_COLORS_SHORT = {
     "KTK":  "#F06522", "DC08": "#FFA500",
 }
 
-# ── Home city mapping (keyed by short code, matching CSV city column) ──────────
+# â”€â”€ Home city mapping (keyed by short code, matching CSV city column) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 TEAM_HOME_CITIES = {
     "MI":   {"Mumbai", "Navi Mumbai"},
     "CSK":  {"Chennai"},
@@ -114,7 +114,7 @@ TEAM_HOME_CITIES = {
     "PWI":  {"Pune"},
 }
 
-# ── IPL captain history (keyed by short code) ──────────────────────────────────
+# â”€â”€ IPL captain history (keyed by short code) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 CAPTAIN_HISTORY = [
     ("MI",   2008, 2010, "Sachin Tendulkar"),
     ("MI",   2011, 2011, "Harbhajan Singh"),
@@ -184,7 +184,7 @@ PLOTLY_LAYOUT = dict(
 )
 
 
-# ── Data ───────────────────────────────────────────────────────────────────────
+# â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def load_data() -> pd.DataFrame:
     df = pd.read_csv(DATA_PATH)
     NAME_MAP = {
@@ -213,7 +213,7 @@ MAIN_TEAMS = sorted(
 ALL_TEAMS = sorted(MATCH_COUNTS.keys())
 
 
-# ── UI helpers ─────────────────────────────────────────────────────────────────
+# â”€â”€ UI helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def tc(name: str) -> str:
     return TEAM_COLORS_SHORT.get(name, TEAM_COLORS.get(name, ACCENT))
 
@@ -258,7 +258,7 @@ def dropdown(id_, options, value, multi=False):
     )
 
 
-# ── Chart builders ─────────────────────────────────────────────────────────────
+# â”€â”€ Chart builders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 def fig_win_rate_bar():
     rows = []
@@ -326,7 +326,7 @@ def fig_season_race():
     )
     fig.update_layout(
         **PLOTLY_LAYOUT, height=440, showlegend=False,
-        title=dict(text="Cumulative Wins Race — press ▶ Play", x=0.5),
+        title=dict(text="Cumulative Wins Race â€” press â–¶ Play", x=0.5),
         xaxis=dict(showgrid=False, categoryorder="total descending"),
         yaxis=dict(showgrid=True, gridcolor="rgba(255,255,255,0.05)"),
         updatemenus=[{
@@ -335,10 +335,10 @@ def fig_season_race():
             "bgcolor": "#1a1a38", "bordercolor": BORDER,
             "font": {"color": TEXT},
             "buttons": [
-                {"label": "▶  Play",  "method": "animate",
+                {"label": "â–¶  Play",  "method": "animate",
                  "args": [None, {"frame": {"duration": 700, "redraw": True},
                                  "fromcurrent": True}]},
-                {"label": "⏸ Pause", "method": "animate",
+                {"label": "â¸ Pause", "method": "animate",
                  "args": [[None], {"frame": {"duration": 0, "redraw": False},
                                    "mode": "immediate"}]},
             ],
@@ -436,7 +436,7 @@ def fig_radar(team: str):
                              tickfont=dict(size=11)),
         ),
         showlegend=False,
-        title=dict(text=f"{TEAM_SHORT.get(team, team)} — Performance Profile", x=0.5),
+        title=dict(text=f"{TEAM_SHORT.get(team, team)} â€” Performance Profile", x=0.5),
     )
     return fig
 
@@ -529,7 +529,7 @@ def fig_h2h_detail(team1: str, team2: str):
                text=[w2], textposition="outside", name=s2),
     ])
     fig.update_layout(**PLOTLY_LAYOUT, height=280, showlegend=False,
-        title=dict(text=f"{s1} vs {s2}  —  {len(m)} encounters", x=0.5),
+        title=dict(text=f"{s1} vs {s2}  â€”  {len(m)} encounters", x=0.5),
         yaxis=dict(showgrid=True, gridcolor="rgba(255,255,255,0.05)"),
         xaxis=dict(showgrid=False),
     )
@@ -616,7 +616,7 @@ def fig_venue_map():
         bgcolor="rgba(0,0,0,0)",
     )
     fig.update_layout(**PLOTLY_LAYOUT, height=520,
-        title=dict(text="IPL Venues  —  Bubble = Matches, Colour = Bat-First Win %", x=0.5),
+        title=dict(text="IPL Venues  â€”  Bubble = Matches, Colour = Bat-First Win %", x=0.5),
     )
     return fig
 
@@ -707,7 +707,7 @@ def fig_toss_decision_trend():
     return fig
 
 
-# ── New charts: Home/Away & Captain Wins ──────────────────────────────────────
+# â”€â”€ New charts: Home/Away & Captain Wins â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 def fig_home_away_all():
     """Grouped bar: home win% vs away win% for every main team."""
@@ -796,7 +796,7 @@ def fig_team_home_away(team: str):
         xaxis=dict(showgrid=False),
         yaxis=dict(tickformat=".0%", range=[0, 1.0],
                    showgrid=True, gridcolor="rgba(255,255,255,0.05)"),
-        title=dict(text=f"{TEAM_SHORT.get(team, team)} — Home vs Away", x=0.5),
+        title=dict(text=f"{TEAM_SHORT.get(team, team)} â€” Home vs Away", x=0.5),
         showlegend=False,
     )
     return fig
@@ -835,7 +835,7 @@ def fig_captain_wins():
     return fig
 
 
-# ── Layout ─────────────────────────────────────────────────────────────────────
+# â”€â”€ Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 TAB_STYLE = {
     "padding": "10px 20px", "borderRadius": "8px 8px 0 0",
     "border": "none", "background": "transparent",
@@ -856,12 +856,12 @@ def make_layout():
     return html.Div([
         # Header
         html.Div([
-            html.H1("🏏  IPL Analytics Dashboard",
+            html.H1("ðŸ  IPL Analytics Dashboard",
                     style={"fontSize": "1.8rem", "fontWeight": "900",
                            "margin": "0 0 4px", "color": TEXT,
                            "letterSpacing": "-0.02em"}),
             html.P(
-                f"2008 – 2026  ·  {tot_m:,} matches  ·  {tot_s} seasons  ·  CricSheet data",
+                f"2008 â€“ 2026  Â·  {tot_m:,} matches  Â·  {tot_s} seasons  Â·  CricSheet data",
                 style={"margin": 0, "color": MUTED, "fontSize": "0.85rem"},
             ),
         ], style={
@@ -872,12 +872,12 @@ def make_layout():
 
         # Tab bar
         dcc.Tabs(id="tabs", value="overview", children=[
-            dcc.Tab(label="📊 Overview",      value="overview", style=TAB_STYLE, selected_style=TAB_SEL),
-            dcc.Tab(label="🏆 Season Race",   value="season",   style=TAB_STYLE, selected_style=TAB_SEL),
-            dcc.Tab(label="📈 Team Analysis", value="team",     style=TAB_STYLE, selected_style=TAB_SEL),
-            dcc.Tab(label="⚔️  Head-to-Head", value="h2h",      style=TAB_STYLE, selected_style=TAB_SEL),
-            dcc.Tab(label="🗺  Venue Map",    value="venue",    style=TAB_STYLE, selected_style=TAB_SEL),
-            dcc.Tab(label="🎲 Toss Analysis", value="toss",     style=TAB_STYLE, selected_style=TAB_SEL),
+            dcc.Tab(label="ðŸ“Š Overview",      value="overview", style=TAB_STYLE, selected_style=TAB_SEL),
+            dcc.Tab(label="ðŸ† Season Race",   value="season",   style=TAB_STYLE, selected_style=TAB_SEL),
+            dcc.Tab(label="ðŸ“ˆ Team Analysis", value="team",     style=TAB_STYLE, selected_style=TAB_SEL),
+            dcc.Tab(label="âš”ï¸  Head-to-Head", value="h2h",      style=TAB_STYLE, selected_style=TAB_SEL),
+            dcc.Tab(label="ðŸ—º  Venue Map",    value="venue",    style=TAB_STYLE, selected_style=TAB_SEL),
+            dcc.Tab(label="ðŸŽ² Toss Analysis", value="toss",     style=TAB_STYLE, selected_style=TAB_SEL),
         ], style={
             "background": BG,
             "borderBottom": f"1px solid {BORDER}",
@@ -887,7 +887,7 @@ def make_layout():
         html.Div(id="tab-content", style={"padding": "28px 32px", "minHeight": "82vh"}),
 
         html.Div(
-            "IPL Analytics Dashboard  ·  Plotly Dash  ·  1,201 matches  ·  CricSheet",
+            "IPL Analytics Dashboard  Â·  Plotly Dash  Â·  1,201 matches  Â·  CricSheet",
             style={"textAlign": "center", "color": MUTED, "fontSize": "0.72rem",
                    "padding": "14px", "borderTop": f"1px solid {BORDER}"},
         ),
@@ -901,16 +901,17 @@ app = dash.Dash(
     title="IPL Analytics Dashboard",
     suppress_callback_exceptions=True,
 )
+server = app.server
 app.layout = make_layout
 
 
-# ── Callbacks ──────────────────────────────────────────────────────────────────
+# â”€â”€ Callbacks â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @app.callback(Output("tab-content", "children"), Input("tabs", "value"))
 def render_tab(tab):
     top_t = DF["winner"].value_counts().idxmax()
     top_w = int(DF["winner"].value_counts().max())
 
-    # ── Overview ──────────────────────────────────────────────────────────────
+    # â”€â”€ Overview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if tab == "overview":
         return html.Div([
             html.Div([
@@ -919,7 +920,7 @@ def render_tab(tab):
                 kpi("Teams",          str(len(ALL_TEAMS)),                         "#4F8EF7"),
                 kpi("Venues",         str(DF["venue"].nunique()),                  "#00b894"),
                 kpi("Most Wins",
-                    f"{TEAM_SHORT.get(top_t, top_t[:6])} · {top_w}",             "#F9CD05"),
+                    f"{TEAM_SHORT.get(top_t, top_t[:6])} Â· {top_w}",             "#F9CD05"),
             ], style={"display": "flex", "gap": "14px", "flexWrap": "wrap", "marginBottom": "22px"}),
             html.Div([
                 card([dcc.Graph(figure=fig_win_rate_bar(),
@@ -940,7 +941,7 @@ def render_tab(tab):
             ], style={"display": "flex", "gap": "20px", "flexWrap": "wrap"}),
         ])
 
-    # ── Season Race ───────────────────────────────────────────────────────────
+    # â”€â”€ Season Race â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if tab == "season":
         default_teams = ["Mumbai Indians", "Chennai Super Kings",
                          "Royal Challengers Bangalore", "Kolkata Knight Riders",
@@ -955,14 +956,14 @@ def render_tab(tab):
                                                     "textTransform": "uppercase",
                                                     "letterSpacing": "0.05em"}),
                 dropdown("season-teams",
-                         [{"label": TEAM_SHORT.get(t, t[:6]) + "  —  " + t, "value": t}
+                         [{"label": TEAM_SHORT.get(t, t[:6]) + "  â€”  " + t, "value": t}
                           for t in MAIN_TEAMS],
                          default_teams, multi=True),
                 dcc.Graph(id="season-line", config={"displayModeBar": False}),
             ]),
         ])
 
-    # ── Team Analysis ─────────────────────────────────────────────────────────
+    # â”€â”€ Team Analysis â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if tab == "team":
         return html.Div([
             card([
@@ -971,7 +972,7 @@ def render_tab(tab):
                                                    "textTransform": "uppercase",
                                                    "letterSpacing": "0.05em"}),
                 dropdown("team-select",
-                         [{"label": TEAM_SHORT.get(t, t[:6]) + "  —  " + t, "value": t}
+                         [{"label": TEAM_SHORT.get(t, t[:6]) + "  â€”  " + t, "value": t}
                           for t in MAIN_TEAMS],
                          "Mumbai Indians"),
             ], {"marginBottom": "22px"}),
@@ -985,7 +986,7 @@ def render_tab(tab):
             card([dcc.Graph(id="team-home-away", config={"displayModeBar": False})]),
         ])
 
-    # ── Head-to-Head ──────────────────────────────────────────────────────────
+    # â”€â”€ Head-to-Head â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if tab == "h2h":
         return html.Div([
             card([dcc.Graph(figure=fig_h2h_heatmap(),
@@ -1021,7 +1022,7 @@ def render_tab(tab):
             ]),
         ])
 
-    # ── Venue Map ─────────────────────────────────────────────────────────────
+    # â”€â”€ Venue Map â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if tab == "venue":
         return html.Div([
             html.Div([
@@ -1034,7 +1035,7 @@ def render_tab(tab):
             ], style={"display": "flex", "gap": "20px", "flexWrap": "wrap"}),
         ])
 
-    # ── Toss Analysis ─────────────────────────────────────────────────────────
+    # â”€â”€ Toss Analysis â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if tab == "toss":
         overall = (DF["toss_winner"] == DF["winner"]).mean()
         field_pct = (DF["toss_decision"] == "field").mean()
@@ -1078,8 +1079,9 @@ def cb_h2h(t1, t2):
     return fig_h2h_detail(t1, t2), fig_h2h_season_bar(t1, t2)
 
 
-# ── Run ────────────────────────────────────────────────────────────────────────
+# â”€â”€ Run â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 if __name__ == "__main__":
     print("\nIPL Analytics Dashboard")
     print("  -> http://localhost:8050\n")
-    app.run(debug=False, port=8050, host="0.0.0.0")
+    app.run(debug=False, port=int(os.environ.get("PORT", 8050)), host="0.0.0.0")
+
